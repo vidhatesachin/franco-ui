@@ -1,12 +1,16 @@
 <div class="app-body">
   <main class="main d-flex align-items-center">
+    
+    
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
+
+
           <div class="card-group">
-            <div class="card p-4">
+            <div class="card p-4" style="background-image: url('../../assets/img/diamond-bg.gif'); background-repeat: no-repeat; background-position: center; height: 350px;background-color: transparent !important;border: none;">
               <div class="card-body">
-                <form>
+                <!-- <form>
                   <h1>Login</h1>
                   <p class="text-muted">Sign In to your account</p>
                   <div class="input-group mb-3">
@@ -29,10 +33,10 @@
                       <button type="button" class="btn btn-link px-0">Forgot password?</button>
                     </div>
                   </div>
-                </form>
+                </form> -->
               </div>
             </div>
-            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+            <!-- <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
               <div class="card-body text-center">
                 <div>
                   <h2>Sign up</h2>
@@ -40,10 +44,68 @@
                   <button type="button" class="btn btn-primary active mt-3">Register Now!</button>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
+          </div>
+          <div class="col-md-6 mx-auto">
+          <div class="card-group">
+              <div class="card p-1">
+                <div class="card-body">
+                    <form style="text-align: center; font-family: 'Courier New', Courier, monospace;"  >
+                         <h1>Blue Diamond</h1> 
+                         <button type="button" class="btn btn-link px-0" (click)="showLoginModal()">Continue to site?</button>
+                         <button type="button" id="openLoginModal" style="display: none" class="btn btn-link px-0" 
+                         (click)="infoModal.show()"></button>
+                         
+                    </form>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
   </main>
 </div>
+
+
+<div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Sign In </h4>
+          <button type="button" class="close" (click)="infoModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+              <p class="text-muted">Sign In to your account</p>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-user"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+              </div>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password" autocomplete="current-password" required>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <button type="button" class="btn btn-primary px-4">Login</button>
+                </div>
+                <div class="col-6 text-right">
+                  <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closeLoginModal" class="btn btn-secondary" (click)="infoModal.hide()">Close</button>
+          <button type="button" class="btn btn-info"(click)="login()">Login</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
