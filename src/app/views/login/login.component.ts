@@ -20,7 +20,9 @@ export class LoginComponent {
   }
 
   login(){
-    
+    jQuery('#closeLoginModal').trigger('click');
+    this.router.navigateByUrl('home');
+    /* 
     this.authService.authenticateUser(this.loginModel).subscribe(
       (response:any) => {
         console.info("Response"+response);
@@ -31,7 +33,7 @@ export class LoginComponent {
         console.log(error);
           
       }
-    )
+    ) */
 
 
     
