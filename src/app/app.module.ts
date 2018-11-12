@@ -40,10 +40,14 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { LogoutComponent } from './views/login/logout.component';
+import { AuthenticationService } from './services/auth.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
@@ -62,12 +66,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     P404Component,
     P500Component,
     LoginComponent,
+    LogoutComponent,
     RegisterComponent
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+  }, AuthenticationService
+],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-export const navItems = [
+/* export const navItems = [
   {
     name: 'Dashboard',
     url: '/dashboard',
@@ -228,4 +228,30 @@ export const navItems = [
     icon: 'icon-layers',
     variant: 'danger'
   }
+];
+ */
+
+
+export const navItems = [
+  {
+    name: 'Dashboard',
+    url: '/home',
+    icon: 'icon-speedometer'/* ,
+    badge: {
+      variant: 'info',
+      text: 'NEW'
+    } */
+  },
+  {
+    name: 'Branches',
+    url: '/branches',
+    icon: 'icon-drop'
+  },
+  {
+    name: 'Users',
+    url: '/users',
+    icon: 'icon-drop'
+  }
+
+   
 ];

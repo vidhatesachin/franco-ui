@@ -8,6 +8,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { LogoutComponent } from './views/login/logout.component';
 
 export const routes: Routes = [
   {
@@ -44,6 +45,13 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'logout',
+    component: LogoutComponent,
+    data: {
+      title: 'Logout'
+    }
+  },
+  {
     path: '',
     component: DefaultLayoutComponent,
     data: {
@@ -65,6 +73,10 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'home',
+        loadChildren: './dashboard/new-dashboard.module#NewDashboardModule'
       },
       {
         path: 'icons',
