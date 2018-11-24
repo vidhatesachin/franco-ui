@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+
+
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../../models/login.model';
 import { AuthenticationService } from '../../services/auth.service';
@@ -10,17 +12,19 @@ declare var jQuery:any;
   templateUrl: 'login.component.html'
 })
 
-export class LoginComponent { 
+export class LoginComponent{ 
   public infoModal;
   public loginModel:Login = new Login();
-  constructor(public router: Router, public authService:AuthenticationService){   
+
+  constructor(public router: Router, public authService:AuthenticationService){ 
+
   }
   showLoginModal(){
     jQuery('#openLoginModal').trigger('click');
   }
-
   login(){
-    jQuery('#closeLoginModal').trigger('click');
+    jQuery('.closeLoginModalClass').trigger('click');
+    
     this.router.navigateByUrl('home');
     /* 
     this.authService.authenticateUser(this.loginModel).subscribe(

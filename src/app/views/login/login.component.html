@@ -53,9 +53,9 @@
                 <div class="card-body">
                     <form style="text-align: center; font-family: 'Courier New', Courier, monospace;"  >
                          <h1>Blue Diamond</h1> 
-                         <button type="button" class="btn btn-link px-0" (click)="showLoginModal()">Continue to site?</button>
-                         <button type="button" id="openLoginModal" style="display: none" class="btn btn-link px-0" 
-                         (click)="infoModal.show()"></button>
+                         <button type="button" class="btn btn-link px-0" (click)="infoModal.show()">Continue to site?</button>
+                        <!--  <button type="button" id="openLoginModal"  class="btn btn-link px-0" 
+                         (click)="infoModal.show()"> dfdf</button> -->
                          
                     </form>
                 </div>
@@ -99,7 +99,7 @@
                   <button type="button" class="btn btn-link px-0">Forgot password?</button>
                 </div>
                 <div class="col-6 text-right">
-                    <button type="button" id="closeLoginModal" class="btn btn-secondary px-4 mx-2" (click)="infoModal.hide()">Close</button>
+                    <button type="button" id="closeLoginModal" class="closeLoginModalClass btn btn-secondary px-4 mx-2" (click)="infoModal.hide()">Close</button>
                     <button type="button" (click)="login()" class="btn btn-primary px-4">Login</button>
                   </div>
               </div>
