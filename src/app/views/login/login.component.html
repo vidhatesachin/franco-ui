@@ -84,14 +84,14 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-user"></i></span>
                 </div>
-                <input type="text" class="form-control" value="{{loginModel.username}}"
+                <input type="text" name="username" class="form-control" [(ngModel)]="loginModel.username" value=""
                  placeholder="Username" autocomplete="username">
               </div>
               <div class="input-group mb-4">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-lock"></i></span>
                 </div>
-                <input type="password" class="form-control" value="{{loginModel.password}}" 
+                <input type="password" name="pass" class="form-control" [(ngModel)]="loginModel.password" value=""
                 placeholder="Password" autocomplete="current-password">
               </div>
               <div class="row">

@@ -43,6 +43,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { LogoutComponent } from './views/login/logout.component';
 import { AuthenticationService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { HttpModule } from '@angular/http';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
+    FormsModule,
     ModalModule.forRoot()
   ],
   declarations: [

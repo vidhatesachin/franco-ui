@@ -23,21 +23,20 @@ export class LoginComponent{
     jQuery('#openLoginModal').trigger('click');
   }
   login(){
-    jQuery('.closeLoginModalClass').trigger('click');
-    
-    this.router.navigateByUrl('home');
-    /* 
+    //jQuery('.closeLoginModalClass').trigger('click');
+    console.log(this.loginModel.username + " and "+ this.loginModel.password);
     this.authService.authenticateUser(this.loginModel).subscribe(
       (response:any) => {
         console.info("Response"+response);
         jQuery('#closeLoginModal').trigger('click');
         this.router.navigateByUrl('home');
+        sessionStorage.setItem("user",response);
+
       },
       (error) => {
         console.log(error);
-          
       }
-    ) */
+    ) 
 
 
     
