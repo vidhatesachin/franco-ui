@@ -80,18 +80,37 @@
         <div class="modal-body">
           <form>
               <p class="text-muted">Sign In to your account</p>
+              <span *ngIf="showValiduser">
+                  <div [hidden]="" class="alert alert-sm alert-danger"> Username is required </div>
+                  </span>
+                  <span *ngIf="showValidEmail">
+
+                 <div [hidden]="" class="alert alert-sm alert-danger">Email address is invalid</div>
+                </span>
               <div class="input-group mb-3">
+                
                 <div class="input-group-prepend">
+                    
+                     
                   <span class="input-group-text"><i class="icon-user"></i></span>
                 </div>
-                <input type="text" name="username" class="form-control" [(ngModel)]="loginModel.username" value=""
-                 placeholder="Username" autocomplete="username">
-              </div>
+  
+                <!-- <span *ngIf="isValid"> -->
+                <input type="text" (blur)="validateEmail()" (keyup)="validateUser()" name="username" 
+                 class="form-control" [(ngModel)]="loginModel.username" value=""
+                 placeholder="Username" autocomplete="off">
+                 
+
+                </div>
+              
+              <span *ngIf="showValidPassword">
+                  <div [hidden]="" class="alert alert-sm alert-danger">Password is required</div>
+                  </span>
               <div class="input-group mb-4">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-lock"></i></span>
                 </div>
-                <input type="password" name="pass" class="form-control" [(ngModel)]="loginModel.password" value=""
+                <input type="password" (blur)="validatePassword()"name="pass" class="form-control" [(ngModel)]="loginModel.password" value=""
                 placeholder="Password" autocomplete="current-password">
               </div>
               <div class="row">
