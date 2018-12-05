@@ -40,10 +40,13 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxSelectModule } from 'ngx-select-ex';
 import { LogoutComponent } from './views/login/logout.component';
 import { AuthenticationService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { BranchesService } from './services/branches.services';
+
 
 @NgModule({
   imports: [
@@ -60,6 +63,7 @@ import { FormsModule } from '@angular/forms';
     TabsModule.forRoot(),
     ChartsModule,
     FormsModule,
+    NgxSelectModule,
     ModalModule.forRoot()
   ],
   declarations: [
@@ -70,11 +74,12 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     LogoutComponent,
     RegisterComponent
+
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }, AuthenticationService
+  }, AuthenticationService,BranchesService
 ],
   bootstrap: [ AppComponent ]
 })

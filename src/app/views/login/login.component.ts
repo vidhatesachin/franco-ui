@@ -26,10 +26,19 @@ export class LoginComponent{
   showLoginModal(){
     jQuery('#openLoginModal').trigger('click');
   }
+  
+  clearSearch(){
+    this.loginModel.username="";
+    this.loginModel.password="";
+    this.showValidPassword=false;
+      this.showValidEmail=false;
+      this.showValiduser=false;
+    
+  }
   validateUser(){
     if(this.loginModel.username==null||this.loginModel.username==""){
       this.showValiduser=true;
-      this.showValidEmail=false
+      this.showValidEmail=false;
       }
       else
       {
@@ -69,6 +78,8 @@ export class LoginComponent{
 
    
   login(){
+    if(this.showValiduser==false&& this.showValidEmail==false&& this.showValidPassword==false)
+    {
     jQuery('.closeLoginModalClass').trigger('click');
     this.router.navigateByUrl('home');
     console.log(this.loginModel.username + " and "+ this.loginModel.password);
@@ -83,8 +94,14 @@ export class LoginComponent{
       (error) => {
         console.log(error);
       }
+    
     ) 
  */
+    }
+    else {
+      alert("invalid");
+    }
+
 
     
   }

@@ -9,6 +9,8 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { LogoutComponent } from './views/login/logout.component';
+//import { BranchComponent } from './views/branch/branch-component/branch.component';
+
 
 export const routes: Routes = [
   {
@@ -51,14 +53,22 @@ export const routes: Routes = [
       title: 'Logout'
     }
   },
+ /*  /* {
+    path: 'branches',
+    component: BranchComponent,
+    data: {
+      title: 'Branch'
+    } 
+  }, */
   {
     path: '',
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
     },
+  
     children: [
-      {
+      /* {
         path: 'base',
         loadChildren: './views/base/base.module#BaseModule'
       },
@@ -74,11 +84,12 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
-      {
+       */{
         path: 'home',
         loadChildren: './dashboard/new-dashboard.module#NewDashboardModule'
       },
-      {
+     
+      /* {
         path: 'icons',
         loadChildren: './views/icons/icons.module#IconsModule'
       },
@@ -93,7 +104,7 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: './views/widgets/widgets.module#WidgetsModule'
-      }
+      } */
     ]
   }
 ];

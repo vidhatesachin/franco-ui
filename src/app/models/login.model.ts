@@ -1,7 +1,7 @@
 export class Login{
 
-    username:string;
-    password:string;
+    username:string="abc@gmail.com";
+    password:string="password";
 
     constructor(){
         
