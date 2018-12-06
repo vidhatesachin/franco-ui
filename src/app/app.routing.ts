@@ -84,9 +84,14 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
-       */{
+       */
+      {
         path: 'home',
         loadChildren: './dashboard/new-dashboard.module#NewDashboardModule'
+      },
+      {
+        path: 'branches',
+        loadChildren: './views/branch/branch.module#BranchModule'
       },
      
       /* {
