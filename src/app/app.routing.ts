@@ -93,6 +93,11 @@ export const routes: Routes = [
         path: 'branches',
         loadChildren: './views/branch/branch.module#BranchModule'
       },
+
+      {
+        path: 'users',
+        loadChildren: './views/user/user.module#UserModule'
+      },
      
       /* {
         path: 'icons',

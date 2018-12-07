@@ -27,7 +27,7 @@ export class DefaultLayoutComponent implements OnInit {
     });
   }
   public ngOnInit():void {
-    console.log('Insdie On init');
+   
     this.getBranches();
   }
   getBranches(){

@@ -46,6 +46,7 @@ import { AuthenticationService } from './services/auth.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BranchesService } from './services/branches.services';
+import { UserService } from './services/user.services';
 
 
 @NgModule({
@@ -79,7 +80,7 @@ import { BranchesService } from './services/branches.services';
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }, AuthenticationService,BranchesService
+  }, AuthenticationService,BranchesService,UserService
 ],
   bootstrap: [ AppComponent ]
 })
