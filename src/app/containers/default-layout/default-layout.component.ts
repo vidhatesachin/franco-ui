@@ -36,9 +36,7 @@ export class DefaultLayoutComponent implements OnInit {
       (response:any) => {
         that.branches = response.json();
         console.log(that.branches);
-        if(that.branchService.selectedBranch==null){
-          that.branchService.selectedBranch = that.branches[0];
-        }
+        that.branchService.selectedBranch = that.branches[0];
       },
       (error) => {
         console.log(error);

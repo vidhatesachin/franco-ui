@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.services';
+import { User } from '../../../models/user.model';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-usercomponent',
@@ -8,7 +10,10 @@ import { UserService } from '../../../services/user.services';
 })
 export class UserComponent implements OnInit {
 
-  public users:UserService[] =new Array;
+  public users:User[] = new Array();
+  public dataSource;
+  public displayedColumns: string[] =
+   ['name','email','phonenumber','controlButtons'];
 
   constructor(public userService:UserService) { }
 
@@ -20,8 +25,8 @@ export class UserComponent implements OnInit {
     this.userService.userService().subscribe(
       (response:any) => {
         that.users = response.json();
-        console.log(that.users);
-               
+        that.dataSource = new MatTableDataSource(that.users);
+              
       },
       (error) => {
         console.log(error);
