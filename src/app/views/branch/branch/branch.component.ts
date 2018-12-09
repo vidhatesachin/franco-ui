@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BranchesService } from '../../../services/branches.services';
 import { Branch } from '../../../models/branch.model';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource} from '@angular/material';
 
 
 @Component({
@@ -13,8 +13,9 @@ export class BranchComponent implements OnInit {
   public branches:Branch[] = new Array();
   public dataSource;
   public displayedColumns: string[] =
-   ['branchcode', 'branchname', 'email', 'phonenumber','branchadress', 'controlButtons'];
+   ['branchcode', 'branchname', 'email', 'phonenumber','branchadress','controlButtons'];
   constructor(public branchService:BranchesService) { }
+  
   public ngOnInit():void {
     this.getBranches();
   }

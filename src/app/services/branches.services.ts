@@ -18,4 +18,4 @@ export class BranchesService {
   branchesService(){
     return this.http.get(environment.servicesURL+'allbranches');
   }
-}
+} 
