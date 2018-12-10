@@ -53,13 +53,6 @@ export const routes: Routes = [
       title: 'Logout'
     }
   },
- /*  /* {
-    path: 'branches',
-    component: BranchComponent,
-    data: {
-      title: 'Branch'
-    } 
-  }, */
   {
     path: '',
     component: DefaultLayoutComponent,
@@ -68,7 +61,7 @@ export const routes: Routes = [
     },
   
     children: [
-      /* {
+      {
         path: 'base',
         loadChildren: './views/base/base.module#BaseModule'
       },
@@ -84,7 +77,7 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
-       */
+      
       {
         path: 'home',
         loadChildren: './dashboard/new-dashboard.module#NewDashboardModule'
@@ -99,7 +92,7 @@ export const routes: Routes = [
         loadChildren: './views/user/user.module#UserModule'
       },
      
-      /* {
+      {
         path: 'icons',
         loadChildren: './views/icons/icons.module#IconsModule'
       },
@@ -114,7 +107,7 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: './views/widgets/widgets.module#WidgetsModule'
-      } */
+      }
     ]
   }
 ];

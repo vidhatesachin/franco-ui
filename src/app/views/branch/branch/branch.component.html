@@ -1,3 +1,4 @@
+<div class="animated fadeIn">
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -36,11 +37,11 @@
   <!-- Control buttons -->
   <ng-container matColumnDef="controlButtons">
     <mat-header-cell *matHeaderCellDef> 
-        <a class="btn mx-1" href="#/branch/add"><i class="icon-plus"></i></a>    
+        <a class="btn btn-sm btn-icon btn-primary mx-1" href="#/branches/add"><i class="fa fa-plus"></i></a>    
     </mat-header-cell>
     <mat-cell *matCellDef="let element">
-        <a class="mx-1" href="#/branch/edit/{{element.id}}"><i class="icon-pencil"></i></a>  
-        <a class="mx-1" href="#"><i class="icon-trash"></i></a>  
+        <a class="mx-1 btn btn-sm btn-default" href="#/branches/edit/{{element.id}}"><i class="fa fa-pencil"></i></a>  
+        <a class="mx-1 btn btn-sm btn-default" href="#"><i class="fa fa-trash"></i></a>  
     </mat-cell>
   </ng-container>
 
@@ -48,3 +49,4 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let element; columns: displayedColumns;"></mat-row>
 </mat-table>
+</div>

@@ -6,6 +6,7 @@ import { BranchRoutingModule } from './branch-routing.module';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { MatTableModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
+import { AddBranchComponent } from './branch/addbranch.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatTableModule,
     CdkTableModule
   ],
-  declarations: [BranchComponent]
+  declarations: [BranchComponent,AddBranchComponent]
 })
 export class BranchModule { }
