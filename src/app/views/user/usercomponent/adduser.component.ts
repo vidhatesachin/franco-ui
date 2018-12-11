@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { BranchesService } from '../../../services/branches.services';
-import { Branch } from '../../../models/branch.model';
 import { Router } from '@angular/router';
+import { User } from '../../../models/user.model';
+import { UserService } from '../../../services/user.services';
 
 declare var jQuery:any;
 
 @Component({
-  selector: 'app-add-branch',
-  templateUrl: './addbranch.component.html',
-  styleUrls: ['./branch.component.scss']
+  selector: 'app-add-user',
+  templateUrl: './adduser.component.html',
+  styleUrls: ['./usercomponent.component.scss']
 })
-export class AddBranchComponent implements OnInit {
+export class AddUserComponent implements OnInit {
    
-  constructor(public router:Router, public branchService:BranchesService) { }
-  public branch:Branch = new Branch(); 
+  constructor(public router:Router, public userService:UserService) { }
+  public user:User = new User();    
   isCollapsed: boolean = false;
   iconCollapse: string = 'icon-arrow-up';
 
@@ -32,20 +32,20 @@ export class AddBranchComponent implements OnInit {
   public ngOnInit():void {
   
   }
-  saveBranch(){
-    this.branchService.saveBranch(this.branch).subscribe(
+   saveUser(){
+    this.userService.saveUser(this.user).subscribe(
       (response:any) => {
         console.info("Response"+response);
-         this.router.navigateByUrl('/branches');
-       
+         this.router.navigateByUrl('/users');
+         
       },
       (error) => {
         console.log(error);
       }
     
     ) 
-    console.log(this.branch);
-  }
+    console.log(this.user);
+  } 
  
   
 }

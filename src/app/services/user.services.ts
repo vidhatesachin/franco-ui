@@ -14,4 +14,8 @@ export class UserService {
   userService(){
     return this.http.get(environment.servicesURL+'allusers');
   }
+  saveUser(userVo:User)
+  {
+    return this.http.post(environment.servicesURL+'/addUser',userVo);
+  }
 }

@@ -1,0 +1,39 @@
+<div class="row animated fadeIn">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          Add a new User
+          <div class="card-header-actions">
+              <a class="btn btn-sm btn-icon  mx-1" href="#/users"><i class="fa fa-undo"></i></a>
+          </div>
+        </div>
+        <div  class="card-body">
+            <form class="form-horizontal">
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"for="text-input">User Name</label>
+                    <div class="col-md-10">
+                      <input type="text" name="username" [(ngModel)]="user.name" class="form-control" placeholder="">
+                    </div>
+                  </div>
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="text-input">Email </label>
+                  <div class="col-md-10">
+                    <input type="text" name="email"[(ngModel)]="user.email"class="form-control" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"for="text-input"> Phone number</label>
+                    <div class="col-md-10">
+                      <input type="text" name="phonenumber" [(ngModel)]="user.phonenumber" class="form-control" placeholder="">
+                    </div>
+                  </div>
+           
+          <div class="form-actions pull-right">
+            <button type="submit" class="btn btn-primary mx-1"(click)="saveUser()" > Save </button>
+            <button class="btn btn-secondary" type="button">Cancel</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div>

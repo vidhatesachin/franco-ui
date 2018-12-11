@@ -8,10 +8,41 @@
           </div>
         </div>
         <div  class="card-body">
-          <form class="form-horizontal">
+            <form class="form-horizontal">
+          <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="text-input">Branch code</label>
+              <div class="col-md-10">
+                <input type="text" name="branchcode" [(ngModel)]="branch.branchcode" class="form-control" placeholder="">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label"for="text-input">Branch name</label>
+                <div class="col-md-10">
+                  <input type="text" name="branchname" [(ngModel)]="branch.branchname" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label" for="text-input">Email </label>
+                  <div class="col-md-10">
+                    <input type="text" name="email"[(ngModel)]="branch.email"class="form-control" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"for="text-input"> Phone number</label>
+                    <div class="col-md-10">
+                      <input type="text" name="phonenumber" [(ngModel)]="branch.phonenumber" class="form-control" placeholder="">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-md-2 col-form-label"for="text-input">Branch adress</label>
+                      <div class="col-md-10">
+                        <input type="text" name="branchadress" [(ngModel)]="branch.branchadress"  class="form-control" placeholder="">
+                      </div>
+                    </div>
+       
            
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Save changes</button>
+          <div class="form-actions pull-right">
+            <button type="submit" class="btn btn-primary mx-1"  (click)="saveBranch()"> Save </button>
             <button class="btn btn-secondary" type="button">Cancel</button>
           </div>
         </form>

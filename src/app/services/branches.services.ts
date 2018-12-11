@@ -18,4 +18,7 @@ export class BranchesService {
   branchesService(){
     return this.http.get(environment.servicesURL+'allbranches');
   }
+  saveBranch(branchVO:Branch){
+    return this.http.post(environment.servicesURL+'/addBranch',branchVO);
+  }
 } 
