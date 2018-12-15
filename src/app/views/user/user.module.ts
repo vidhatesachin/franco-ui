@@ -7,6 +7,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { MatTableModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { AddUserComponent } from './usercomponent/adduser.component';
+import { EditUserComponent } from './usercomponent/edituser.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { AddUserComponent } from './usercomponent/adduser.component';
      ButtonsModule.forRoot(),  MatTableModule,
      CdkTableModule
   ],
-  declarations: [UserComponent,AddUserComponent]
+  declarations: [UserComponent,AddUserComponent,EditUserComponent]
 })
 export class UserModule { }

@@ -1,45 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from '../../../models/user.model';
 import { BranchesService } from '../../../services/branches.services';
 import { Branch } from '../../../models/branch.model';
-import { Router } from '@angular/router';
 
 declare var jQuery:any;
 
 @Component({
-  selector: 'app-add-branch',
-  templateUrl: './addbranch.component.html',
+  selector: 'app-edit-branch',
+  templateUrl: './editbranch.component.html',
   styleUrls: ['./branch.component.scss']
 })
-export class AddBranchComponent implements OnInit {
+export class EditBranchComponent implements OnInit {
    
   constructor(public router:Router, public branchService:BranchesService) { }
-  public branch:Branch = new Branch(); 
-  
+  public branch:Branch=new Branch();
+  public showValidEmail=false;    
   public showValidPhonenumber=false;
-  public showValidEmail=false;
-
-  public ngOnInit():void {
   
+  public ngOnInit():void {
+    this.getBranchDetail(); 
   }
-  saveBranch(){
-    if(this.showValidEmail==false&&this.showValidPhonenumber==false){
-    this.branchService.saveBranch(this.branch).subscribe(
-      (response:any) => {
-        console.info("Response"+response);
-         this.router.navigateByUrl('/branches');
-       
-      },
-      (error) => {
-        console.log(error);
-      }
-    
-    ) 
-    console.log(this.branch);
-    }
-    else{
-      alert("Please enter valid email and phone number");
-    }
-  }
+ 
   cancelBranch()
   {
     jQuery('.closeLoginModalClass').trigger('click');
@@ -90,6 +72,44 @@ validatePhonenumber(){
   }
 
 }
+  getBranchDetail() {
+  let that = this;
+  let id:string;
+  let url=window.location.hash;
+  console.log(window.location.hash); 
+  url= url.substring(url.lastIndexOf('/')+1);
+  id=url;
+  console.log(id); 
+  this.branchService.getBranch(id).subscribe(
+    (response:any) => {
+      that.branch = response.json();
+    },
+    (error) => {
+      console.log(error);
+     
+    }
+  )
+      }
+  
+   updateBranch(){
+    if(this.showValidEmail==false&&this.showValidPhonenumber==false){
+    this.branchService.updateBranch(this.branch).subscribe(
+      (response:any) => {
+        console.info("Response"+response);
+         this.router.navigateByUrl('/branches');
+         
+      },
+      (error) => {
+        console.log(error);
+      }
+    
+    ) 
+    console.log(this.branch);
+    }
+    else{
+      alert("Please enter valid email and phone number");
+    }
+  } 
  
   
 }

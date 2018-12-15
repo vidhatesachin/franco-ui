@@ -18,4 +18,13 @@ export class UserService {
   {
     return this.http.post(environment.servicesURL+'/addUser',userVo);
   }
+  updateUser(userVo:User){
+    return this.http.put(environment.servicesURL+'/updateUser',userVo);
+  }
+  getUser(id:string){
+    return this.http.get(environment.servicesURL+'/user/'+id);
+  }
+ 
+  
+  
 }

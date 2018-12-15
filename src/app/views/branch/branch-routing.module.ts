@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BranchComponent } from './branch/branch.component';
 import { AddBranchComponent } from './branch/addbranch.component';
+import { EditBranchComponent } from './branch/editbranch.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,13 @@ const routes: Routes = [
     component: AddBranchComponent,
     data: {
       title: 'Add Branch'
+    }
+  },
+  {
+    path: 'edit/:id',
+    component: EditBranchComponent,
+    data: {
+      title: 'Edit Branch'
     }
   }
 ];

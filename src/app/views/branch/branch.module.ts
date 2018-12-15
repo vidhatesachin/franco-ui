@@ -7,6 +7,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { MatTableModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { AddBranchComponent } from './branch/addbranch.component';
+import { EditBranchComponent } from './branch/editbranch.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports: [
@@ -15,8 +17,9 @@ import { AddBranchComponent } from './branch/addbranch.component';
     BranchRoutingModule,
     ButtonsModule.forRoot(),
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    ModalModule.forRoot()
   ],
-  declarations: [BranchComponent,AddBranchComponent]
+  declarations: [BranchComponent,AddBranchComponent,EditBranchComponent]
 })
 export class BranchModule { }

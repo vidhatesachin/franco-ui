@@ -2,12 +2,12 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          Add a new User
-          <div class="card-header-actions">
-              <a class="btn btn-sm btn-icon  mx-1" href="#/users"><i class="fa fa-undo"></i></a>
+          Edit a new User
+          <div class="card-header-actions"*ngIf="privateLesson">
+              <a class="btn btn-sm btn-icon  mx-1" href="#/branches/delete/{{element.id}}"><i class="fa fa-undo"></i></a>
           </div>
         </div>
-        <div  class="card-body">
+    <!--     <div  class="card-body">
             <form class="form-horizontal">
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label"for="text-input">User Name</label>
@@ -37,11 +37,16 @@
                   </div>
            
           <div class="form-actions pull-right">
-            <button type="submit" class="btn btn-primary mx-1"(click)="saveUser()"> Save </button>
+            <button type="submit" class="btn btn-primary mx-1"(click)="updateUser()"> Update </button>
             <button class="btn btn-secondary" type="button"(click)="clearUser()">Clear</button>
             <button class="btn btn-secondary mx-1" type="button"(click)="cancelUser()">Cancel</button>
           </div>
-        </form>
+        </form> -->
+        <div class="form-actions pull-right">
+            <button type="submit" class="btn btn-primary mx-1"(click)="updateUser()"> Update </button>
+            <button class="btn btn-secondary" type="button"(click)="clearUser()">Clear</button>
+            <button class="btn btn-secondary mx-1" type="button"(click)="cancelUser()">Cancel</button>
+          </div>
         </div>
       </div>
     </div> <!--/.col-->
