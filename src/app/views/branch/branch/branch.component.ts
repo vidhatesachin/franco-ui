@@ -42,12 +42,11 @@ export class BranchComponent implements OnInit {
     // alert("In Delete")
 
      id=this.selectedBranchId;
-    //console.log("id="+id);
-      this.branchService.deleteBranch(id).subscribe(
+       this.branchService.deleteBranch(id).subscribe(
         (response:any)=> {
          this.getBranches();
          jQuery('#closeDeleteModal').trigger('click');
-       // this.router.navigateByUrl('/branches');
+         alert("Branch is deleted");
         },
   
       );
@@ -55,7 +54,7 @@ export class BranchComponent implements OnInit {
  openModal(id:number){
   jQuery("#openDeleteModalBtn_"+id).trigger('click');
   this.selectedBranchId=id;
- // console.log("selectedBranchId="+this.selectedBranchId);
+ 
  
  }
 

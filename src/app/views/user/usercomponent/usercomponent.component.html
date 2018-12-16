@@ -30,7 +30,10 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let element">
             <a class="mx-1 btn btn-sm btn-default" href="#/users/edit/{{element.id}}"><i class="fa fa-pencil"></i></a>  
-            <a class="mx-1 btn btn-sm btn-default" href="#"><i class="fa fa-trash"></i></a>  
+            <a class="mx-1 btn btn-sm btn-default" (click)="openModal(element.id)"><i class="fa fa-trash"></i></a>  
+            <button id="openDeleteModalBtn_{{element.id}}" style="display: none;" class="mx-1 btn btn-sm btn-default" (click)="deleteModal.show()"><i class="fa fa-trash"></i></button>  
+            <div class="card-header-actions">
+              </div>
         </mat-cell>
       </ng-container>
   
@@ -38,3 +41,26 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let element; columns: displayedColumns;"></mat-row>
   </mat-table>
+  
+
+<div bsModal #deleteModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete User </h4>
+          <button type="button" class="close" (click)="deleteModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p class="text-muted">Are you sure?</p>
+
+        </div>
+       <div class="modal-footer">
+            
+          <button type="button" id="closeDeleteModal" class="btn btn-secondary" (click)="deleteModal.hide()">No</button>
+           <button type="button" class="btn btn-info"(click)="deleteUser()">Yes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->

@@ -8,14 +8,17 @@ import { MatTableModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { AddUserComponent } from './usercomponent/adduser.component';
 import { EditUserComponent } from './usercomponent/edituser.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
      UserRoutingModule,
-     ButtonsModule.forRoot(),  MatTableModule,
-     CdkTableModule
+     ButtonsModule.forRoot(), 
+      MatTableModule,
+     CdkTableModule,
+     ModalModule.forRoot()
   ],
   declarations: [UserComponent,AddUserComponent,EditUserComponent]
 })

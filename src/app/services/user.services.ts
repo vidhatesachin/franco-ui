@@ -24,7 +24,9 @@ export class UserService {
   getUser(id:string){
     return this.http.get(environment.servicesURL+'/user/'+id);
   }
- 
+  deleteUser(id:string){
+    return this.http.delete(environment.servicesURL+'deleteUser/'+id);
+  } 
   
   
 }
