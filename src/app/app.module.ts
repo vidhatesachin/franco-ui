@@ -47,8 +47,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BranchesService } from './services/branches.services';
 import { UserService } from './services/user.services';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     BrowserModule,
@@ -65,8 +64,9 @@ import { UserService } from './services/user.services';
     ChartsModule,
     FormsModule,
     NgxSelectModule,
-    ModalModule.forRoot()
-  ],
+    ModalModule.forRoot(),
+    BrowserAnimationsModule
+ ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,

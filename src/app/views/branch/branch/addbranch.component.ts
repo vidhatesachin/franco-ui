@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { BranchesService } from '../../../services/branches.services';
 import { Branch } from '../../../models/branch.model';
 import { Router } from '@angular/router';
@@ -12,22 +12,28 @@ declare var jQuery:any;
 })
 export class AddBranchComponent implements OnInit {
    
-  constructor(public router:Router, public branchService:BranchesService) { }
+  constructor(public router:Router, public branchService:BranchesService) { 
+
+
+  }
   public branch:Branch = new Branch(); 
   
   public showValidPhonenumber=false;
   public showValidEmail=false;
 
   public ngOnInit():void {
-  
+    
   }
   saveBranch(){
+    let that = this;
     if(this.showValidEmail==false&&this.showValidPhonenumber==false){
     this.branchService.saveBranch(this.branch).subscribe(
       (response:any) => {
         console.info("Response"+response);
-         this.router.navigateByUrl('/branches');
-       
+
+
+          this.router.navigateByUrl('/branches');
+
       },
       (error) => {
         console.log(error);
