@@ -3,6 +3,7 @@ import { BranchesService } from '../../../services/branches.services';
 import { Branch } from '../../../models/branch.model';
 import { MatTableDataSource} from '@angular/material';
 import { Router } from '@angular/router';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 declare var jQuery:any;
 @Component({
@@ -17,7 +18,7 @@ export class BranchComponent implements OnInit {
   public selectedBranchId;
   public displayedColumns: string[] =
    ['branchcode', 'branchname', 'email', 'phonenumber','branchadress','controlButtons'];
-  constructor(public router:Router,public branchService:BranchesService) { }
+  constructor(public router:Router,public branchService:BranchesService,public toastr: ToastrManager) { }
   
   public ngOnInit():void {
     this.getBranches();
@@ -29,6 +30,7 @@ export class BranchComponent implements OnInit {
       (response:any) => {
         that.branches = response.json();
         that.dataSource = new MatTableDataSource(that.branches);
+       
            console.log()    
       },
       (error) => {
@@ -45,8 +47,10 @@ export class BranchComponent implements OnInit {
        this.branchService.deleteBranch(id).subscribe(
         (response:any)=> {
          this.getBranches();
+         this.showDelete();
          jQuery('#closeDeleteModal').trigger('click');
-         alert("Branch is deleted");
+        
+         
         },
   
       );
@@ -55,8 +59,13 @@ export class BranchComponent implements OnInit {
   jQuery("#openDeleteModalBtn_"+id).trigger('click');
   this.selectedBranchId=id;
  
- 
  }
+ showDelete() {
+  this.toastr.errorToastr('Branch deleted succefully', 'Deleted');
+}
+
+
+
 
 
  

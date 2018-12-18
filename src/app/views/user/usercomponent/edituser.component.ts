@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/user.services';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 declare var jQuery:any;
 
@@ -12,7 +13,7 @@ declare var jQuery:any;
 })
 export class EditUserComponent implements OnInit {
    
-  constructor(public router:Router, public userService:UserService) { }
+  constructor(public router:Router, public userService:UserService,public toastr: ToastrManager) { }
   public user:User=new User();
   public showValidEmail=false;    
   public showValidPhonenumber=false;
@@ -95,6 +96,7 @@ getUserDetail() {
     this.userService.updateUser(this.user).subscribe(
       (response:any) => {
         console.info("Response"+response);
+        this.showSuccess();
          this.router.navigateByUrl('/users');
          
       },
@@ -109,6 +111,8 @@ getUserDetail() {
       alert("Please enter valid email and phone number");
     }
   } 
- 
+  showSuccess() {
+    this.toastr.successToastr('User Edited succefully', 'Congrats');
+  }
   
 }

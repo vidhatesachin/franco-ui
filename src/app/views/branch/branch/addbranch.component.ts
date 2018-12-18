@@ -2,6 +2,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { BranchesService } from '../../../services/branches.services';
 import { Branch } from '../../../models/branch.model';
 import { Router } from '@angular/router';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 declare var jQuery:any;
 
@@ -12,7 +13,7 @@ declare var jQuery:any;
 })
 export class AddBranchComponent implements OnInit {
    
-  constructor(public router:Router, public branchService:BranchesService) { 
+  constructor(public router:Router, public branchService:BranchesService,public toastr: ToastrManager) { 
 
 
   }
@@ -30,10 +31,8 @@ export class AddBranchComponent implements OnInit {
     this.branchService.saveBranch(this.branch).subscribe(
       (response:any) => {
         console.info("Response"+response);
-
-
           this.router.navigateByUrl('/branches');
-
+          this.showSuccess();
       },
       (error) => {
         console.log(error);
@@ -59,14 +58,25 @@ export class AddBranchComponent implements OnInit {
     this.branch.branchadress="";
 
   }
+  /* validateUser(){
+    if(this.branch.email==null||this.branch.email==""){
+      this.showValidEmail=true;
+     
+      }
+      else
+      {
+        this.showValidEmail=false;
+      }
+  } */
   validateEmail(){
-  if( this.branch.email!=null &&  this.branch.email!="")
+    //this.validateUser();
+  if( this.branch.email!=null && this.branch.email!="")
     {
     
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let testResult:boolean= re.test(String( this.branch.email).toLowerCase());
-    /* alert (testResult);
-  */   if(testResult){
+    //alert (testResult);
+    if(testResult){
       this.showValidEmail=false;
 
     }
@@ -76,6 +86,10 @@ export class AddBranchComponent implements OnInit {
     }
 
   }
+  else
+    {
+      this.showValidEmail=true;
+    }
 }
 validatePhonenumber(){
   if( this.branch.phonenumber!=null && this.branch.phonenumber!="")
@@ -83,8 +97,8 @@ validatePhonenumber(){
     
     let re = /^-?[0-9]+(\.[0-9]*){0,1}$/;
     let testResult:boolean= re.test(String( this.branch.phonenumber).toLowerCase());
-    /* alert (testResult);
-  */   if(testResult){
+    
+    if(testResult){
       this.showValidPhonenumber=false;
 
     }
@@ -96,6 +110,8 @@ validatePhonenumber(){
   }
 
 }
- 
+showSuccess() {
+  this.toastr.successToastr('Branch added succefully', 'Congrats');
+}
   
 }

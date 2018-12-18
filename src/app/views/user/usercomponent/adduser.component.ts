@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/user.services';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 declare var jQuery:any;
 
@@ -12,7 +13,7 @@ declare var jQuery:any;
 })
 export class AddUserComponent implements OnInit {
    
-  constructor(public router:Router, public userService:UserService) { }
+  constructor(public router:Router, public userService:UserService,public toastr: ToastrManager) { }
   public user:User = new User();
   public showValidEmail=false;    
   public showValidPhonenumber=false;
@@ -26,6 +27,7 @@ export class AddUserComponent implements OnInit {
       (response:any) => {
         console.info("Response"+response);
          this.router.navigateByUrl('/users');
+         this.showSuccess();
          
       },
       (error) => {
@@ -89,6 +91,9 @@ export class AddUserComponent implements OnInit {
     
       }
     
+    }
+    showSuccess() {
+      this.toastr.successToastr('User added succefully', 'Congrats');
     }
  
   

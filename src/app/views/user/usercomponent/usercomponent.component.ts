@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.services';
 import { User } from '../../../models/user.model';
 import { MatTableDataSource } from '@angular/material';
+import { ToastrManager } from 'ng6-toastr-notifications';
 declare var jQuery:any;
 @Component({
   selector: 'app-usercomponent',
@@ -17,7 +18,7 @@ export class UserComponent implements OnInit {
   public displayedColumns: string[] =
    ['name','email','phonenumber','controlButtons'];
 
-  constructor(public userService:UserService) { }
+  constructor(public userService:UserService,public toastr: ToastrManager) { }
 
   public ngOnInit():void {
     this.getUsers();
@@ -46,7 +47,7 @@ export class UserComponent implements OnInit {
         (response:any)=> {
          this.getUsers();
          jQuery('#closeDeleteModal').trigger('click');
-         alert("User delete");
+         this.showDelete();
        // this.router.navigateByUrl('/branches');
         },
   
@@ -58,6 +59,8 @@ export class UserComponent implements OnInit {
  // console.log("selectedBranchId="+this.selectedBranchId);
  
  }
-  
+ showDelete() {
+  this.toastr.errorToastr('User deleted succefully', 'Deleted');
+}
 
 }

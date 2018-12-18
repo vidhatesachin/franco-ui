@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User } from '../../../models/user.model';
 import { BranchesService } from '../../../services/branches.services';
 import { Branch } from '../../../models/branch.model';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 declare var jQuery:any;
 
@@ -13,7 +14,7 @@ declare var jQuery:any;
 })
 export class EditBranchComponent implements OnInit {
    
-  constructor(public router:Router, public branchService:BranchesService) { }
+  constructor(public router:Router, public branchService:BranchesService,public toastr: ToastrManager) { }
   public branch:Branch=new Branch();
   public showValidEmail=false;    
   public showValidPhonenumber=false;
@@ -36,7 +37,7 @@ export class EditBranchComponent implements OnInit {
 
   }
   validateEmail(){
-  if( this.branch.email!=null &&  this.branch.email!="")
+  if( this.branch.email!=null && this.branch.email!="")
     {
     
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -96,6 +97,7 @@ validatePhonenumber(){
     this.branchService.updateBranch(this.branch).subscribe(
       (response:any) => {
         console.info("Response"+response);
+        this.showSuccess();
          this.router.navigateByUrl('/branches');
          
       },
@@ -110,6 +112,9 @@ validatePhonenumber(){
       alert("Please enter valid email and phone number");
     }
   } 
+  showSuccess() {
+    this.toastr.successToastr('Branch Edited succefully', 'Congrats');
+  }
  
   
 }

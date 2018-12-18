@@ -48,6 +48,8 @@ import { FormsModule } from '@angular/forms';
 import { BranchesService } from './services/branches.services';
 import { UserService } from './services/user.services';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ng6-toastr-notifications';
 @NgModule({
   imports: [
     BrowserModule,
@@ -63,9 +65,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TabsModule.forRoot(),
     ChartsModule,
     FormsModule,
-    NgxSelectModule,
+    NgxSelectModule,  
     ModalModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+     ToastrModule.forRoot()
  ],
   declarations: [
     AppComponent,
