@@ -5,7 +5,8 @@ import { BranchesService } from '../../services/branches.services';
 declare var jQuery:any;
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './default-layout.component.html'
+  templateUrl: './default-layout.component.html',
+  styleUrls:['./default-layout.style.scss']
 })
 
 export class DefaultLayoutComponent implements OnInit {

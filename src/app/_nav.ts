@@ -21,7 +21,7 @@ export const navItems = [
 
  /*-------------------PUT ALL MENUS ABOVE THIS--------------------------------------------------- */
 
-  {
+ /*  {
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'icon-speedometer',
@@ -249,5 +249,5 @@ export const navItems = [
     url: 'http://coreui.io/pro/angular/',
     icon: 'icon-layers',
     variant: 'danger'
-  }
+  } */
 ];

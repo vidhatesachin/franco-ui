@@ -81,14 +81,12 @@ export class LoginComponent{
   login(){
     if(this.showValiduser==false&& this.showValidEmail==false&& this.showValidPassword==false)
     {
-    jQuery('.closeLoginModalClass').trigger('click');
-    this.router.navigateByUrl('home');
     console.log(this.loginModel.username + " and "+ this.loginModel.password);
-    /* this.authService.authenticateUser(this.loginModel).subscribe(
+     this.authService.authenticateUser(this.loginModel).subscribe(
       (response:any) => {
         console.info("Response"+response);
         jQuery('#closeLoginModal').trigger('click');
-        this.router.navigateByUrl('home');
+        this.router.navigateByUrl('users');
         sessionStorage.setItem("user",response);
 
       },
@@ -97,7 +95,6 @@ export class LoginComponent{
       }
     
     ) 
- */
     }
     else {
       alert("invalid");
