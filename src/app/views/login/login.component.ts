@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../../models/login.model';
 import { AuthenticationService } from '../../services/auth.service';
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 declare var jQuery:any;
 
@@ -21,7 +22,7 @@ export class LoginComponent{
   public showValidPassword=false;
   public showValidEmail=false;
 
-  constructor(public router: Router, public authService:AuthenticationService){ 
+  constructor(public router: Router, public authService:AuthenticationService,public toastr: ToastrManager){ 
 
   }
   showLoginModal(){
@@ -97,11 +98,14 @@ export class LoginComponent{
     ) 
     }
     else {
-      alert("invalid");
+      this.showDelete();
     }
 
 
     
+  }
+  showDelete() {
+    this.toastr.errorToastr('Please Enter Valid Details', 'Error');
   }
 
   

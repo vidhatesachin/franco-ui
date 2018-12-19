@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { BranchesService } from '../../../services/branches.services';
 import { Branch } from '../../../models/branch.model';
 import { MatTableDataSource} from '@angular/material';
+import { CdkTableModule } from '@angular/cdk/table';
 import { Router } from '@angular/router';
 import { ToastrManager } from 'ng6-toastr-notifications';
+import { BehaviorSubject } from 'rxjs';
 
 declare var jQuery:any;
 @Component({
@@ -29,10 +31,9 @@ export class BranchComponent implements OnInit {
     this.branchService.branchesService().subscribe(
       (response:any) => {
         that.branches = response.json();
-        that.dataSource = new MatTableDataSource(that.branches);
-       
-           console.log()    
-      },
+        that.dataSource = new BehaviorSubject(that.branches);
+        
+                },
       (error) => {
         console.log(error);
        
@@ -63,9 +64,6 @@ export class BranchComponent implements OnInit {
  showDelete() {
   this.toastr.errorToastr('Branch deleted succefully', 'Deleted');
 }
-
-
-
 
 
  

@@ -1,59 +1,59 @@
-<div class="animated fadeIn">
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+    <table class="table table-condensed table-striped table-dark" cdk-table [dataSource]="dataSource">
 
   <!-- Position Column -->
-  <ng-container matColumnDef="branchcode">
-    <mat-header-cell  *matHeaderCellDef> Branch code</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.branchcode}} </mat-cell>
-  </ng-container>
+  <ng-container cdkColumnDef="branchcode">
+      <th cdk-header-cell *cdkHeaderCellDef> Branch code </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.branchcode}} </td>
+    </ng-container>
+ 
 
   <!-- Name Column -->
-  <ng-container matColumnDef="branchname">
-    <mat-header-cell *matHeaderCellDef> Branch name </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.branchname}} </mat-cell >
-  </ng-container>
+  <ng-container cdkColumnDef="branchname">
+      <th cdk-header-cell *cdkHeaderCellDef>  Branch name  </th>
+      <td cdk-cell *cdkCellDef="let element">{{element.branchname}} </td>
+    </ng-container>
+ 
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="email">
-    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
-  </ng-container>
+  <ng-container cdkColumnDef="email">
+      <th cdk-header-cell *cdkHeaderCellDef> Email </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.email}} </td>
+    </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="phonenumber">
-    <mat-header-cell *matHeaderCellDef> Phone number </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.phonenumber}} </mat-cell>
-  </ng-container>
+
+ 
+  <ng-container cdkColumnDef="phonenumber">
+      <th cdk-header-cell *cdkHeaderCellDef>  Phone number </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.phonenumber}}</td>
+    </ng-container>
 
    <!-- Adress Column -->
-   <ng-container matColumnDef="branchadress">
-    <mat-header-cell *matHeaderCellDef> Branch adress </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.branchadress}} </mat-cell>
-  </ng-container>
+   <ng-container cdkColumnDef="branchadress">
+      <th cdk-header-cell *cdkHeaderCellDef> Branch adress </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.branchadress}} </td>
+    </ng-container>
+ 
 
   <!-- Control buttons -->
-  <ng-container matColumnDef="controlButtons">
-    <mat-header-cell *matHeaderCellDef> 
+    <ng-container cdkColumnDef="controlButtons">
+    <th cdk-header-cell *cdkHeaderCellDef>
         <a class="btn btn-sm btn-icon btn-primary mx-1" href="#/branches/add"><i class="fa fa-plus"></i></a>    
-    </mat-header-cell>
-    <mat-cell *matCellDef="let element">
+      </th>
+    <td *cdkCellDef="let element">
         <a class="mx-1 btn btn-sm btn-default" href="#/branches/edit/{{element.id}}"><i class="fa fa-pencil"></i></a>  
         <a class="mx-1 btn btn-sm btn-default" (click)="openModal(element.id)"><i class="fa fa-trash"></i></a>  
         <button id="openDeleteModalBtn_{{element.id}}" style="display: none;" class="mx-1 btn btn-sm btn-default" (click)="deleteModal.show()"><i class="fa fa-trash"></i></button>  
         <div class="card-header-actions">
         </div>
-    </mat-cell>
+      </td>
   </ng-container>
 
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let element; columns: displayedColumns;"></mat-row>
-</mat-table>
-</div>
-
+ 
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+<tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+ 
+</table>
 
 <div bsModal #deleteModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-info" role="document">

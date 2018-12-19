@@ -3,6 +3,7 @@ import { UserService } from '../../../services/user.services';
 import { User } from '../../../models/user.model';
 import { MatTableDataSource } from '@angular/material';
 import { ToastrManager } from 'ng6-toastr-notifications';
+import { BehaviorSubject } from 'rxjs';
 declare var jQuery:any;
 @Component({
   selector: 'app-usercomponent',
@@ -28,7 +29,7 @@ export class UserComponent implements OnInit {
     this.userService.userService().subscribe(
       (response:any) => {
         that.users = response.json();
-        that.dataSource = new MatTableDataSource(that.users);
+        that.dataSource = new BehaviorSubject(that.users);
               
       },
       (error) => {
