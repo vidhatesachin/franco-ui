@@ -35,6 +35,23 @@
                       <input type="text" (blur)="validatePhonenumber()"name="phonenumber" [(ngModel)]="user.phonenumber" class="form-control" placeholder="">
                     </div>
                   </div>
+                <div class="form-group row">
+                  <label class="col-md-2 col-form-label"for="text-input"> Branch name</label>
+                  <div class="col-md-10">
+                   
+                      <ngx-select 
+                        [items]="branchService.branches"
+                        noResultsFound = "No records found"
+                        optGroupOptionsField="children"
+                        size="medium"
+                        (select)="selected($event)"
+                        (remove)="removed($event)"
+                        placeholder="Select branch"
+                        optionTextField="branchname">
+                    </ngx-select>
+                  </div>
+                </div>
+                  
            
           <div class="form-actions pull-right">
             <button type="submit" class="btn btn-primary mx-1"(click)="saveUser()"> Save </button>

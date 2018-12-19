@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/user.services';
 import { ToastrManager } from 'ng6-toastr-notifications';
+import { Branch } from '../../../models/branch.model';
+import { BranchesService } from '../../../services/branches.services';
 
 declare var jQuery:any;
 
@@ -11,14 +13,17 @@ declare var jQuery:any;
   templateUrl: './edituser.component.html',
   styleUrls: ['./usercomponent.component.scss']
 })
-export class EditUserComponent implements OnInit {
+export class EditUserComponent implements OnInit,AfterViewInit {
    
-  constructor(public router:Router, public userService:UserService,public toastr: ToastrManager) { }
+  constructor(public router:Router, public userService:UserService,public toastr: ToastrManager,public branchService:BranchesService) { }
   public user:User=new User();
   public showValidEmail=false;    
   public showValidPhonenumber=false;
-  
+  public selectedBr:Branch=new Branch();
   public ngOnInit():void {
+    
+  }
+  public ngAfterViewInit():void{
     this.getUserDetail(); 
   }
   cancelUser()
@@ -82,6 +87,12 @@ getUserDetail() {
   this.userService.getUser(id).subscribe(
     (response:any) => {
       that.user = response.json();
+      that.branchService.branches.forEach(element => {
+          if(element.id == that.user.branch.id){
+            that.selectedBr.id = element.id;
+            that.selectedBr.branchname = element.branchname;
+          }
+      });
     },
     (error) => {
       console.log(error);
@@ -113,6 +124,15 @@ getUserDetail() {
   } 
   showSuccess() {
     this.toastr.successToastr('User Edited succefully', 'Congrats');
+  }
+  public selected(value:any):void {
+    console.log('Selected value is: ', value);
+    this.user.branch = new Branch();
+    this.user.branch.id = value;
+  }
+
+  public removed(value:any):void {
+    console.log('Removed value is: ', value);
   }
   
 }

@@ -80,31 +80,33 @@ export class LoginComponent{
 
    
   login(){
-    if(this.showValiduser==false&& this.showValidEmail==false&& this.showValidPassword==false)
-    {
-    console.log(this.loginModel.username + " and "+ this.loginModel.password);
-     this.authService.authenticateUser(this.loginModel).subscribe(
-      (response:any) => {
-        console.info("Response"+response);
-        jQuery('#closeLoginModal').trigger('click');
-        this.router.navigateByUrl('users');
-        sessionStorage.setItem("user",response);
-
-      },
-      (error) => {
-        console.log(error);
+    if(this.showValiduser==false&& this.showValidEmail==false&& this.showValidPassword==false) {
+      if(this.loginModel.username!=null && this.loginModel.username.trim()!="" && this.loginModel.password!=null && this.loginModel.password.trim()!="" ){
+        console.log(this.loginModel.username + " and "+ this.loginModel.password);
+        this.authService.authenticateUser(this.loginModel).subscribe(
+         (response:any) => {
+           console.info("Response"+response);
+           jQuery('#closeLoginModal').trigger('click');
+           sessionStorage.setItem("user",response);
+           this.router.navigateByUrl('users');
+         },
+         (error) => {
+            this.showError();
+            console.log(error);
+         }
+       ) 
+      } else {
+        this.showError();
       }
-    
-    ) 
     }
     else {
-      this.showDelete();
+      this.showError();
     }
 
 
     
   }
-  showDelete() {
+  showError() {
     this.toastr.errorToastr('Please Enter Valid Details', 'Error');
   }
 

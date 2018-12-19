@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class BranchesService {
   public selectedBranch:Branch = new Branch();
-  
+  public branches:Branch[] =new Array;
   constructor(private http:Http) {
     
   }

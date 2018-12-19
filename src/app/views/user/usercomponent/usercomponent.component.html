@@ -1,47 +1,65 @@
-<table class="table table-condensed table-striped table-dark" cdk-table [dataSource]="dataSource">
 
-    <!-- Position Column -->
-    <ng-container cdkColumnDef="name">
-        <th cdk-header-cell *cdkHeaderCellDef> User Name</th>
-        <td cdk-cell *cdkCellDef="let element">{{element.name}} </td>
-      </ng-container>
-   
-  
-    <!-- Name Column -->
-    <ng-container cdkColumnDef="email">
-        <th cdk-header-cell *cdkHeaderCellDef> Email  </th>
-        <td cdk-cell *cdkCellDef="let element"> {{element.email}} </td>
-      </ng-container>
-   
-  
-    <!-- Weight Column -->
-    <ng-container cdkColumnDef="phonenumber">
-        <th cdk-header-cell *cdkHeaderCellDef> Phone number </th>
-        <td cdk-cell *cdkCellDef="let element">{{element.phonenumber}} </td>
-      </ng-container>
-  
-  
-    <!-- Control buttons -->
-      <ng-container cdkColumnDef="controlButtons">
-      <th cdk-header-cell *cdkHeaderCellDef>
-          <a class="btn btn-sm btn-icon btn-primary mx-1" href="#/users/add"><i class="fa fa-plus"></i></a>    
-        </th>
-      <td *cdkCellDef="let element">
-          <a class="mx-1 btn btn-sm btn-default" href="#/users/edit/{{element.id}}"><i class="fa fa-pencil"></i></a>  
-          <a class="mx-1 btn btn-sm btn-default" (click)="openModal(element.id)"><i class="fa fa-trash"></i></a>  
-          <button id="openDeleteModalBtn_{{element.id}}" style="display: none;" class="mx-1 btn btn-sm btn-default" (click)="deleteModal.show()"><i class="fa fa-trash"></i></button>  
-          <div class="card-header-actions">
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Simple Table 
           </div>
-        </td>
-    </ng-container>
-  
-   
-    <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
-   
-  </table>
-  
-  
+          <div class="card-body">
+
+                  <table class="table table-condensed table-striped" cdk-table [dataSource]="dataSource">
+
+                    <!-- Position Column -->
+                    <ng-container cdkColumnDef="name">
+                        <th cdk-header-cell *cdkHeaderCellDef> User Name</th>
+                        <td cdk-cell *cdkCellDef="let element">{{element.name}} </td>
+                      </ng-container>
+                  
+                  
+                    <!-- Name Column -->
+                    <ng-container cdkColumnDef="email">
+                        <th cdk-header-cell *cdkHeaderCellDef> Email  </th>
+                        <td cdk-cell *cdkCellDef="let element"> {{element.email}} </td>
+                      </ng-container>
+                  
+                  
+                   
+                    <ng-container cdkColumnDef="phonenumber">
+                        <th cdk-header-cell *cdkHeaderCellDef> Phone number </th>
+                        <td cdk-cell *cdkCellDef="let element">{{element.phonenumber}} </td>
+                      </ng-container>
+                      
+                      
+                    <ng-container cdkColumnDef="branchname">
+                        <th cdk-header-cell *cdkHeaderCellDef> Branch name </th>
+                        <td cdk-cell *cdkCellDef="let element">{{element.branch.branchname}} </td>
+                      </ng-container>
+                  
+                    <!-- Control buttons -->
+                      <ng-container cdkColumnDef="controlButtons">
+                      <th cdk-header-cell *cdkHeaderCellDef>
+                          <a class="btn btn-sm btn-icon btn-primary mx-1" href="#/users/add"><i class="fa fa-plus"></i></a>    
+                        </th>
+                      <td *cdkCellDef="let element">
+                          <a class="mx-1 btn btn-sm btn-default" href="#/users/edit/{{element.id}}"><i class="fa fa-pencil"></i></a>  
+                          <a class="mx-1 btn btn-sm btn-default" (click)="openModal(element.id)"><i class="fa fa-trash"></i></a>  
+                          <button id="openDeleteModalBtn_{{element.id}}" style="display: none;" class="mx-1 btn btn-sm btn-default" (click)="deleteModal.show()"><i class="fa fa-trash"></i></button>  
+                          <div class="card-header-actions">
+                          </div>
+                        </td>
+                    </ng-container>
+                  
+                  
+                    <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+                  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+                  
+                  </table>
+            </div>
+          </div>
+      </div>
+  </div>
+        
 
 <div bsModal #deleteModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-info" role="document">
@@ -64,3 +82,4 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+</div>

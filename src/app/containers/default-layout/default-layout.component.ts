@@ -16,7 +16,7 @@ export class DefaultLayoutComponent implements OnInit {
   
   private changes: MutationObserver;
   public element: HTMLElement = document.body;
-  public branches:Branch[] =new Array;
+  
    constructor(public branchService:BranchesService) {
 
     this.changes = new MutationObserver((mutations) => {
@@ -35,9 +35,9 @@ export class DefaultLayoutComponent implements OnInit {
     let that = this;
     this.branchService.branchesService().subscribe(
       (response:any) => {
-        that.branches = response.json();
-        console.log(that.branches);
-        that.branchService.selectedBranch = that.branches[0];
+        that.branchService.branches = response.json();
+        console.log(that.branchService.branches);
+        that.branchService.selectedBranch = that.branchService.branches[0];
       },
       (error) => {
         console.log(error);
@@ -58,7 +58,7 @@ export class DefaultLayoutComponent implements OnInit {
     console.log('Selected value is: ', value);
     let that = this;
     this.allowSelectBranch = false;
-    this.branches.forEach(element => {
+    this.branchService.branches.forEach(element => {
       if(element.id ==value){
         that.branchService.selectedBranch = element;
       }

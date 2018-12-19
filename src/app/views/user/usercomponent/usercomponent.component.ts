@@ -4,6 +4,7 @@ import { User } from '../../../models/user.model';
 import { MatTableDataSource } from '@angular/material';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { BehaviorSubject } from 'rxjs';
+import { BranchesService } from '../../../services/branches.services';
 declare var jQuery:any;
 @Component({
   selector: 'app-usercomponent',
@@ -17,7 +18,7 @@ export class UserComponent implements OnInit {
   public deleteModal;
   public selectedBranchId;
   public displayedColumns: string[] =
-   ['name','email','phonenumber','controlButtons'];
+   ['name','email','phonenumber','branchname','controlButtons'];
 
   constructor(public userService:UserService,public toastr: ToastrManager) { }
 
@@ -61,7 +62,7 @@ export class UserComponent implements OnInit {
  
  }
  showDelete() {
-  this.toastr.errorToastr('User deleted succefully', 'Deleted');
+  this.toastr.successToastr('User deleted succefully', 'Deleted');
 }
 
 }

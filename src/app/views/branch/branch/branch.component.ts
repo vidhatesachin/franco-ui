@@ -62,7 +62,7 @@ export class BranchComponent implements OnInit {
  
  }
  showDelete() {
-  this.toastr.errorToastr('Branch deleted succefully', 'Deleted');
+  this.toastr.successToastr('Branch deleted succefully', 'Deleted');
 }
 
 

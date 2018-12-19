@@ -68,7 +68,7 @@ import { ToastrModule } from 'ng6-toastr-notifications';
     NgxSelectModule,  
     ModalModule.forRoot(),
     BrowserAnimationsModule,
-     ToastrModule.forRoot()
+    ToastrModule.forRoot()
  ],
   declarations: [
     AppComponent,

@@ -1,3 +1,5 @@
+import { Branch } from "./branch.model";
+
 export class User{
 
     id:number;
@@ -6,7 +8,7 @@ export class User{
     password:string;
     phonenumber:string;
     imageIds:string;
-    
+    branch:Branch;
     constructor(){
         
     }

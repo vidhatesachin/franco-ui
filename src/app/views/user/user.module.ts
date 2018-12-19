@@ -9,6 +9,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { AddUserComponent } from './usercomponent/adduser.component';
 import { EditUserComponent } from './usercomponent/edituser.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxSelectModule } from 'ngx-select-ex';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
      ButtonsModule.forRoot(), 
       MatTableModule,
      CdkTableModule,
+     NgxSelectModule,  
      ModalModule.forRoot()
   ],
   declarations: [UserComponent,AddUserComponent,EditUserComponent]

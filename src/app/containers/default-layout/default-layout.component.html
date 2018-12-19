@@ -365,7 +365,7 @@
       
        <a *ngIf="allowSelectBranch" class="branchesDropDown" >
          <ngx-select 
-             [items]="branches"
+             [items]="branchService.branches"
              [defaultValue]="branchService.selectedBranch"
              noResultsFound = "No records found"
              optGroupOptionsField="children"
