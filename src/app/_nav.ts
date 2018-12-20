@@ -1,8 +1,8 @@
 export const navItems = [
   {
-    name: 'Dashboard',
+    name: 'Home',
     url: '/home',
-    icon: 'icon-speedometer'/* ,
+    icon: 'fa fa-home'/* ,
     badge: {
       variant: 'info',
       text: 'NEW'
@@ -11,12 +11,12 @@ export const navItems = [
   {
     name: 'Branches',
     url: '/branches',
-    icon: 'icon-drop'
+    icon: 'fa fa-code-fork'
   },
   {
     name: 'Users',
     url: '/users',
-    icon: 'icon-drop'
+    icon: 'fa fa-users'
   },
 
  /*-------------------PUT ALL MENUS ABOVE THIS--------------------------------------------------- */

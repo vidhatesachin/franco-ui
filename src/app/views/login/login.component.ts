@@ -23,7 +23,9 @@ export class LoginComponent{
   public showValidEmail=false;
 
   constructor(public router: Router, public authService:AuthenticationService,public toastr: ToastrManager){ 
-
+    if(sessionStorage.getItem("user")!=null){
+      this.router.navigateByUrl('home');
+    } 
   }
   showLoginModal(){
     jQuery('#openLoginModal').trigger('click');
@@ -88,7 +90,7 @@ export class LoginComponent{
            console.info("Response"+response);
            jQuery('#closeLoginModal').trigger('click');
            sessionStorage.setItem("user",response);
-           this.router.navigateByUrl('users');
+           this.router.navigateByUrl('home');
          },
          (error) => {
             this.showError();

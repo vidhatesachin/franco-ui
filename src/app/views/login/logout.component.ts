@@ -17,6 +17,7 @@ export class LogoutComponent implements OnInit {
   }
 
   logout(){
+    sessionStorage.removeItem("user");
     window.location.href = "";
   }
 }
