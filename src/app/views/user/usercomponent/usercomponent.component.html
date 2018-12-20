@@ -33,7 +33,7 @@
                       
                     <ng-container cdkColumnDef="branchname">
                         <th cdk-header-cell *cdkHeaderCellDef> Branch name </th>
-                        <td cdk-cell *cdkCellDef="let element">{{element.branch.branchname}} </td>
+                        <td cdk-cell *cdkCellDef="let element">{{(element.branch!=null)? element.branch.branchname: '-'}} </td>
                       </ng-container>
                   
                     <!-- Control buttons -->
